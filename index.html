@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/react-store/assets/apple-touch-icon-ceb1879e.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAstJREFUOE+NkV2IVVUUx/9r33P2vjPduR/6UNNj40sPFuLgQ0SiWCBq0UtCaiAEioN37oyEMA/jbR78Ls+948dMQQ99MEIhqA/2YRBhJuiDLypE9JBUDoRzzv3Au885e604hqVg6XpZLNZev7X2/08A0GqYQwMLdjfVwVn9uNGdNmsp3IdKrl8fZ9DF0qidftzhdlNPCtMr1AryL0JSR4o25px3qH/8zm+PgkSB3kxQfQC/QJ2m3mQRn807POGUqRdH7bb/A3QC/RyIthRG7TtRQ89Rp+m/VagmH2dD7YbeI8xfF8fSHx8GkWMotBI9W3w63vrddfDyij5N7WZ+pTCvE6YPrLG3TGLmiqF97WGCtgL9ERztL+6yP0WBftcDXaZskzRhujBVZvEVUdcJXKlmj95/RRSYHYpkcejiwyWlJ53gcmUsPnUXcC/CphkiljoBG4RpuDRuf856nYN4irU5zyxTKoflnqhj/bXer1nvAcDda+pQrYrZqQRrz/1g173xOVzUMCMKeB3ipgZq6ff3L6XwOCpw/lB5Z3Llv9T/fRb9g38gpjrSe2+uzMIf3oaEosBUhdw14lxeQDfKY71fovexqDSO2/9msyT7ThiYl8s1+0132h92rDLL11MY6AlJ1WfK561K6E9J7Un4Zj+YL0DRqxq0OxHsIMJNBp5l8IyC2s4iX/riXaQo0JOlWjwlmR6z6Gv3zJF5stVBMasStpc8pUcKcRx0tDlQWLDVdlnvdaJmGOmglyOhqKE/UUKhA87kIOVCLf6i09Rzhdvxm91FZk2S8Lzy1EvFBXsiKprVKclNo2gmJWnkQAm1G+ZDEH0qzCMM+dYj9FhoUACPCM//7ZScFagVCvIkC827np3w+syZmGX7PzYuvOcvK+9KrrYDfWAgjCc6Ff9txclpR95QsZZe6DTza4h618WZpYWa/So8kn8mE/wvlQFSmvm7hAsAAAAASUVORK5CYII=">
+    <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiIiwic2hvcnRfbmFtZSI6IiIsImljb25zIjpbeyJzcmMiOiIvYW5kcm9pZC1jaHJvbWUtMTkyeDE5Mi5wbmciLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIn0seyJzcmMiOiIvYW5kcm9pZC1jaHJvbWUtNTEyeDUxMi5wbmciLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIn1dLCJ0aGVtZV9jb2xvciI6IiNmZmZmZmYiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2ZmZmZmZiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIn0=">
+    <title>SF STORE</title>
     <!-- fix 404 error -->
     <script type="text/javascript">
       (function (l) {
@@ -19,10 +28,13 @@
         }
       })(window.location);
     </script>
-    <script type="module" crossorigin src="/react-store/assets/index-03558cf8.js"></script>
+    <script type="module" crossorigin src="/react-store/assets/index-e38b59f7.js"></script>
+    <link rel="stylesheet" href="/react-store/assets/index-89e1bf84.css">
   </head>
   <body>
     <div id="root"></div>
+    <div id='menu-portal'></div>
+    <div id='modal-portal'></div>
     
   </body>
 </html>
