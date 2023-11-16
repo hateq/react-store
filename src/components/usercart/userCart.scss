@@ -1,0 +1,19 @@
+.cart-img {
+	width: 35px;
+	height: 35px;
+}
+.cart-counter {
+	color: rgb(255, 132, 0);
+	font-size: 24px;
+	margin: 0;
+	margin-top: 3px;
+}
+.user-cart {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border: 0.5px solid transparent;
+	&:hover {
+	border: 0.5px solid white;
+	}
+}

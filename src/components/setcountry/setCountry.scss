@@ -1,0 +1,31 @@
+.set-country {
+	display: flex;
+	gap: 0 5px;
+	align-items: center;
+	border: 1px solid transparent;
+	cursor: pointer;
+	height: 58px;
+	min-width: 100px;
+	max-width: 120px;
+	padding: 7px;
+	&:hover {
+		border-color: white;
+	}
+	img {
+		width: 20px;
+		height: 20px;
+		margin-top: 10px;
+	}
+	.user-country {
+		p {
+			color: rgb(205, 205, 205);
+			font-size: 14px;
+			margin: 0;
+		}
+		h2 {
+			color: white;
+			font-size: 16px;
+			margin: 0;
+		}
+	}
+}

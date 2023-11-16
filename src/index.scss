@@ -1,0 +1,15 @@
+@import './styles/normalize.scss';
+* {
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	&::selection {
+		background-color: rgb(2, 2, 99);
+		color: white;
+	}
+}
+a {
+	text-decoration: none;
+}
+ul {
+	list-style-type: none;
+}
