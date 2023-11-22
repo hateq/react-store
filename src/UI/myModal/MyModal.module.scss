@@ -19,11 +19,11 @@
     }
 }
 .modal {
-  background-color: #fff;
+  background-color: var(--modal-color);
   width: 50%;
-  min-width: 330px;
+  min-width: 280px;
+  max-width: 320px;
   min-height: 300px;
-  padding: 40px 30px;
   border-radius: 10px;
   position: absolute;
   left: 50%;
@@ -35,23 +35,5 @@
 	visibility: hidden;
 	transform: translate(-50%, -30%);
 	transition-delay: 0.2s;
-  background-color: white;
-    .buttonClose {
-      border: none;
-      background-color: transparent;
-      color: black;
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      height: 24px;
-      width: 24px;
-      cursor: pointer;
-      transition: .5s;
-      font-size: 24px;
-      font-weight: 700;
-      &:hover {
-        color: gray;
-      }
-    }
 }
 }

@@ -9,7 +9,10 @@ export const api = createApi({
 	endpoints: builder => ({
 		getProductsList: builder.query({
 			query: (arg: IProductsList) => `/?title=${arg.title}&price_min=${arg.minPrice}&price_max=${arg.maxPrice}&categoryId=${arg.categoryId}&offset=${arg.offset}&limit=${arg.limit}`
+		}),
+		getCountriesList: builder.query({
+			query: () => 'https://restcountries.com/v3.1/all'
 		})
 	})
 })
-export const {useGetProductsListQuery} = api
+export const {useGetProductsListQuery, useGetCountriesListQuery} = api

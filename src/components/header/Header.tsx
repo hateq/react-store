@@ -6,6 +6,7 @@ import BurgerMenu from '../burgermenu/BurgerMenu'
 import MyInput from '../../UI/myInput/MyInput'
 import UserAccount from '../useraccount/UserAccount'
 import SetCountry from '../setcountry/SetCountry'
+import ThemeToggler from '../themetoggler/ThemeToggler'
 
 const Header = () => {
 	return ( 
@@ -20,6 +21,7 @@ const Header = () => {
 				<div className="choose-country"><SetCountry/></div>
 			</div>
 			<div className="header-top__left-mobile">
+				<ThemeToggler/>
 				<UserAccount/>
 			<UserCart/>
 			</div>
@@ -28,10 +30,10 @@ const Header = () => {
 		<MyInput/>
 		</div>
 		<div className="header-top__right">
+			<ThemeToggler/>
 			<UserAccount/>
 		<UserCart/>
 		</div>
-		<div className="header-top__mobile-container"></div>
 			</div>
 			<div className="header-bottom">
 		<div className="burger-menu">

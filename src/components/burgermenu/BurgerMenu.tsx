@@ -5,10 +5,13 @@ import {useState} from 'react'
 const BurgerMenu = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	return ( 
-		<div className={cl.burgerMenu}>
-		<h2 onClick={() => setIsOpen(!isOpen)}>hh</h2>
-		<UserMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
+		<>
+		<div onClick={() => setIsOpen(true)} className={cl.burgerMenu}>
+		<div className={cl.burgerWrapper}><span></span><span></span><span></span></div>
+		<h2>All</h2>
 		</div>
+		<UserMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
+		</>
 	 );
 }
  

@@ -2,9 +2,11 @@ import {useMemo} from 'react'
 import {bindActionCreators} from '@reduxjs/toolkit'
 import {useDispatch} from 'react-redux'
 import { cartSlice } from '../store/cart/cart.slice'
+import { userCountrySlice } from '../store/usercountry/userCountry.slice'
 
 const rootActions = {
-	...cartSlice.actions
+	...cartSlice.actions,
+	...userCountrySlice.actions
 }
 export const useActions = () => {
 	const dispatch = useDispatch()
