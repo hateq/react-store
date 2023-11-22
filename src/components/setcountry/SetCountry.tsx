@@ -57,7 +57,7 @@ const SetCountry = () => {
 					</div>
 					<div className="button-wrapper">
 						<MyButton onClick={onButtonClick}>
-						Done
+						<p>Done</p>
 						</MyButton>
 					</div>
 				</div>
