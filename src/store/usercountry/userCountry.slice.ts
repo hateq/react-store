@@ -4,7 +4,7 @@ interface IUserCountry {
 	country: string
 }
 const localStorageUserCountry = JSON.parse(localStorage.getItem('user-country')!)
-const initialState: IUserCountry = {country: localStorageUserCountry?.country || 'Russia'}
+const initialState: IUserCountry = {country: localStorageUserCountry?.country}
 export const userCountrySlice = createSlice({
 	name: 'user-country',
 	initialState,
