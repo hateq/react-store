@@ -14,25 +14,23 @@ ul {
 	list-style-type: none;
 }
 html[data-theme='light'] {
-	--color: white;
-	--header-top: rgb(1, 1, 28);
-	--header-bottom: rgb(37, 37, 80);
+	--header-top: rgb(41, 53, 70);
+	--header-bottom: rgb(52, 67, 87);
 	--modal-color: white;
-	--modal-country-top: rgb(224, 223, 223);
-	--second-color: rgb(250, 180, 2);
-	--second-color-hover: rgb(218, 158, 7);
-	--second-color-selected: rgb(146, 106, 4);
+	--second-color: rgb(101, 131, 168);
+	--second-color-hover: rgb(99, 128, 163);
+	--second-color-selected: rgb(68, 87, 113);
+	--start-bg-color: linear-gradient(180deg, rgba(73,95,122,1) 0%, rgba(80,105,135,1) 34%, rgba(85,112,144,1) 56%, rgba(110,149,196,1) 100%);
 }
 html[data-theme='dark'] {
-	--color: black;
-	--header-top: rgb(3, 95, 77);
-	--header-bottom: rgb(1, 130, 104);
+	--header-top: rgb(0, 69, 62);
+	--header-bottom: rgb(25, 88, 81);
 	--modal-color: rgb(176, 175, 175);
-	--modal-country-top: rgb(151, 151, 151);
 	--second-color: rgb(2, 126, 101);
 	--second-color-hover: rgb(4, 142, 114);
-	--second-color-selected: rgb(1, 75, 60);
+	--second-color-selected: rgb(3, 101, 82);
+	--start-bg-color: linear-gradient(180deg, rgba(1,27,24,1) 0%, rgba(7,31,28,1) 46%, rgba(7,33,30,1) 59%, rgba(10,68,61,1) 100%);
 }
 body {
-	background-color: var(--color);
+	background-color: white;
 }

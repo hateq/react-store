@@ -1,9 +1,10 @@
+import StartMainPage from '../../components/startmainpage/StartMainPage'
 import './mainPage.scss'
 
 const MainPage = () => {
 	return ( 
 		<>
-		main
+		<StartMainPage/>
 		</>
 	 );
 }

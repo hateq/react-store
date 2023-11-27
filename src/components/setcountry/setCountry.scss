@@ -1,4 +1,3 @@
-@import '../../styles/CustomSelect.scss';
 .set-country {
 	display: flex;
 	gap: 0 5px;
@@ -32,47 +31,6 @@
 	@media(max-width:700px) {
 		&:hover {
 			border-color: transparent;
-		}
-	}
-}
-.country-modal-wrapper {
-	height: 100%;
-	width: 100%;
-	.modal-top {
-		background-color: var(--modal-country-top);
-		width: 100%;
-		height: 60px;
-		border-radius: 10px 10px 0 0;
-		padding: 15px;
-		border-bottom: 1px solid black;
-		h2 {
-			color: black;
-			font-size: 20px;
-			margin: 0;
-		}
-	}
-	.modal-bottom {
-		padding: 20px;
-		display: flex;
-		justify-content: center;
-		position: relative;
-		select {
-			margin-top: 100px;
-		}
-		.select-wrapper {
-			width: 250px;
-			margin-top: 50px;
-			@media(max-width:600px) {
-				font-size: 18px;
-			}
-		}
-		.button-wrapper {
-			position: absolute;
-			top: 190px;
-			right: 30px;
-			p {
-				color: black;
-			}
 		}
 	}
 }

@@ -8,6 +8,9 @@
 	padding: 7px 5px;
 	@media(max-width:700px) {
 		margin-left: 0;
+		&:hover {
+			border-color: transparent;
+		}
 	}
 	&:hover {
 		border-color: white;

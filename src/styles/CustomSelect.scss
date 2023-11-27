@@ -19,6 +19,7 @@
 		img {
 			width: 30px !important;
 			height: 20px !important;
+			border: 1px solid black !important;
 		}
 	}
 	&__input-container {
@@ -43,9 +44,13 @@
 		img {
 			width: 30px !important;
 			height: 20px !important;
+			border: 1px solid black !important;
 		}
 		&--is-focused {
-			background-color: var(--second-color-hover) !important;
+			background-color: transparent !important;
+			@media(hover:hover) {
+				background-color: var(--second-color-hover) !important;
+			}
 		}
 		&--is-selected {
 			background-color: var(--second-color-selected) !important;

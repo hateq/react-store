@@ -2,3 +2,13 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 }
+.disable-scroll {
+	overflow-y: hidden;
+  height: 100vh;
+  @media(hover: hover) {
+    padding-right: 17px;
+  }
+}
+img {
+  user-select: none;
+}

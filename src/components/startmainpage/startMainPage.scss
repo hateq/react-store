@@ -1,0 +1,32 @@
+.start-main-page {
+	width: 100%;
+	min-height: 600px;
+	background: var(--start-bg-color);
+	&__text {
+		height: 250px;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding: 0 20px;
+		gap: 0 30%;
+		@media(max-width:700px) {
+			gap: 0;
+		}
+		h2 {
+			color: white;
+			font-size: 30px;
+			margin: 0;
+			width: 350px;
+			@media(max-width:700px) {
+				font-size: 24px;
+				width: 200px;
+			}
+		}
+		img {
+			width: 100px;
+			@media(max-width:700px) {
+				width: 70px;
+			}
+		}
+	}
+}

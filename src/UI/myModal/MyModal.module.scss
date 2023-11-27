@@ -19,7 +19,7 @@
     }
 }
 .modal {
-  background-color: var(--modal-color);
+  background-color: white;
   width: 50%;
   min-width: 280px;
   max-width: 320px;
@@ -27,7 +27,7 @@
   border-radius: 10px;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 43%;
   transform: translate(-50%, -50%);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   transition: 0.5s;

@@ -12,7 +12,10 @@ export const api = createApi({
 		}),
 		getCountriesList: builder.query({
 			query: () => 'https://restcountries.com/v3.1/all'
+		}),
+		getCategoriesList: builder.query({
+			query: () => 'https://api.escuelajs.co/api/v1/categories'
 		})
 	})
 })
-export const {useGetProductsListQuery, useGetCountriesListQuery} = api
+export const {useGetProductsListQuery, useGetCountriesListQuery, useGetCategoriesListQuery} = api
