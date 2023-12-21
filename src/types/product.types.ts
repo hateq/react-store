@@ -1,21 +1,21 @@
-interface IProductCategory {
-	id: number
-	name: string
-	image: string
+interface IProductRating {
+	rate: number
+	count: number
 }
 export interface IProduct {
 	id: number
 	title: string
 	price: number
 	description: string
-	images: string[]
-	category: IProductCategory
+	category: string
+	image: string
+	rating: IProductRating
 }
 export interface IProductsList {
 	title: string
-	minPrice: number
-	maxPrice: number
-	categoryId: number
+	minPrice: number | null
+	maxPrice: number | null
+	categoryId: number | null
 	offset: number
-	limit: number
+	limit: number | null
 }

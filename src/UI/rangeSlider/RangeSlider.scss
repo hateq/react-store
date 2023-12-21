@@ -1,0 +1,24 @@
+.horizontal-slider {
+	width: 100%;
+	max-width: 500px;
+	height: 50px;
+	.example-track {
+		top: 20px;
+		height: 5px;
+		background-color: var(--range-slider-track);
+		border-radius: 10px;
+	}
+	.example-thumb {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		top: 11px;
+		width: 20px;
+		height: 20px;
+		font-size: 12px;
+		background-color: var(--second-color);
+		color: white;
+		cursor: pointer;
+		border-radius: 50%;
+	}
+}

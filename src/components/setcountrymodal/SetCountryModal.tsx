@@ -1,21 +1,26 @@
 import './setCountryModal.scss'
 import MyButton from '../../UI/myButton/MyButton'
 import AsyncSelect from 'react-select/async'
+import {SelectInstance} from 'react-select'
 import MyModal from '../../UI/myModal/MyModal'
-import {useState} from 'react'
+import {useState, useEffect, FC, useRef} from 'react'
 import { useActions } from '../../hooks/useActions'
 import { ISelectedOption } from '../../types/select.types'
-import {FC} from 'react'
 
 interface SetCountryModalProps {
 	isOpen: boolean
 	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
-	imgRef: React.RefObject<HTMLImageElement>
 	userCountry: {country: string}
 	userCountryFlag: string | undefined
 	data: any
 }
-const SetCountryModal: FC<SetCountryModalProps> = ({isOpen, setIsOpen, imgRef, userCountry, userCountryFlag, data}) => {
+const SetCountryModal: FC<SetCountryModalProps> = ({isOpen, setIsOpen, userCountry, userCountryFlag, data}) => {
+	const imgRef = useRef<HTMLImageElement>(null)
+	const selectRef = useRef<SelectInstance>(null)
+	useEffect(() => {
+		imgRef.current?.setAttribute('src', userCountryFlag!)
+		selectRef.current?.selectOption(defaultOption)
+	}, [isOpen])
 	const {setUserCountry} = useActions()
 	const [selectedCountry, setSelectedCountry] = useState<string>(userCountry.country)
 	const handleChange = (selectedOption: ISelectedOption | null) => {
@@ -48,7 +53,7 @@ const loadOptions = (searchValue: string | number, callback: any) => {
 				</div>
 				<div onClick={onModalClick} className="modal-bottom">
 					<div className="select-wrapper">
-						<AsyncSelect defaultValue={defaultOption} loadOptions={loadOptions} onChange={handleChange} classNamePrefix='custom-select' placeholder='Choose your country' defaultOptions={filteredCountries}/>
+						<AsyncSelect ref={selectRef} defaultValue={defaultOption} loadOptions={loadOptions} onChange={(selectedOption: any) => handleChange(selectedOption)}classNamePrefix='custom-select' placeholder='Choose your country' defaultOptions={filteredCountries}/>
 					</div>
 					<div className="button-wrapper">
 						<MyButton onClick={onButtonClick}>

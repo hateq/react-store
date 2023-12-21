@@ -2,6 +2,12 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 }
+.App {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 101vh;
+}
 .disable-scroll {
 	overflow-y: hidden;
   height: 100vh;

@@ -1,20 +1,17 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
-interface ISelectedCategory {
-	id: number, name: string
-}
 type TypeSelectedCategory =  {
-	selectedCategory: ISelectedCategory | null
+	selectedCategory: string | null
 }
-const localStorageSelectedCategory = JSON.parse(localStorage.getItem('selected-category')!)
+const localStorageSelectedCategory = localStorage.getItem('selected-category')
 const initialState: TypeSelectedCategory = {selectedCategory: localStorageSelectedCategory || null }
 export const selectedCategorySlice = createSlice({
 	name: 'selected-category',
 	initialState,
 	reducers: {
-		setSelectedCategory: (state, {payload: category}: PayloadAction<ISelectedCategory>) => {
+		setSelectedCategory: (state, {payload: category}: PayloadAction<string>) => {
 			state.selectedCategory = category
-			localStorage.setItem('selected-category', JSON.stringify(category))
+			localStorage.setItem('selected-category', category)
 		}
 	}
 })

@@ -4,17 +4,17 @@ import { IProductsList } from '../../types/product.types'
 export const api = createApi({
 	reducerPath: 'api',
 	baseQuery: fetchBaseQuery({
-		baseUrl: 'https://api.escuelajs.co/api/v1/products'
+		baseUrl: 'https://fakestoreapi.com/products'
 	}),
 	endpoints: builder => ({
 		getProductsList: builder.query({
-			query: (arg: IProductsList) => `/?title=${arg.title}&price_min=${arg.minPrice}&price_max=${arg.maxPrice}&categoryId=${arg.categoryId}&offset=${arg.offset}&limit=${arg.limit}`
+			query: (arg: number) => `/?limit=${arg}`
 		}),
 		getCountriesList: builder.query({
 			query: () => 'https://restcountries.com/v3.1/all'
 		}),
 		getCategoriesList: builder.query({
-			query: () => 'https://api.escuelajs.co/api/v1/categories'
+			query: () => 'https://fakestoreapi.com/products/categories'
 		})
 	})
 })

@@ -1,0 +1,32 @@
+.product-filters {
+	width: 100%;
+	height: 300px;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	.set-price {
+		display: flex;
+		flex-direction: column;
+		gap: 0 10px;
+		width: 220px;
+		h2 {
+			margin: 0 auto -5px;
+			font-size: 20px;
+		}
+		.inputs-wrapper {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 30px;
+		}
+	}
+	.select-wrapper {
+		margin-top: 10px;
+		width: 220px;
+		select {
+			cursor: pointer;
+			width: 100%;
+		}
+	}
+}

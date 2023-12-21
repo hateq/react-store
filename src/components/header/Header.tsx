@@ -7,8 +7,13 @@ import MyInput from '../../UI/myInput/MyInput'
 import UserAccount from '../useraccount/UserAccount'
 import SetCountry from '../setcountry/SetCountry'
 import ThemeToggler from '../themetoggler/ThemeToggler'
+import { useInputValue } from '../../hooks/useInputValue'
+import { useActions } from '../../hooks/useActions'
+import { ChangeEvent } from 'react'
 
 const Header = () => {
+	const {inputValue} = useInputValue()
+	const {setInputValue} = useActions()
 	return ( 
 		<header className='header'>
 			<div className="header-top">
@@ -27,7 +32,9 @@ const Header = () => {
 			</div>
 		</div>
 		<div className="header-top__search-container">
-		<MyInput/>
+		<MyInput value={inputValue.value} onChange={(e: ChangeEvent<HTMLInputElement>) => {
+			setInputValue(e.target.value)
+		}}/>
 		</div>
 		<div className="header-top__right">
 			<ThemeToggler/>
