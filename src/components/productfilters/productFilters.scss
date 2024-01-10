@@ -6,6 +6,10 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	input, select {
+		border: 1px solid black;
+		border-radius: 3px;
+	}
 	.set-price {
 		display: flex;
 		flex-direction: column;
@@ -27,6 +31,22 @@
 		select {
 			cursor: pointer;
 			width: 100%;
+			margin: 7px 0 0;
+		}
+	}
+	.set-rating {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 220px;
+		margin-top: 20px;
+		h2 {
+			font-size: 14px;
+		}
+		input {
+			width: 17px;
+			height: 17px;
+			cursor: pointer;
 		}
 	}
 }

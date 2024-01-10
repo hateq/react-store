@@ -1,5 +1,4 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
-import { IProductsList } from '../../types/product.types'
 
 export const api = createApi({
 	reducerPath: 'api',
@@ -8,7 +7,7 @@ export const api = createApi({
 	}),
 	endpoints: builder => ({
 		getProductsList: builder.query({
-			query: (arg: number) => `/?limit=${arg}`
+			query: () => `/?limit=20`
 		}),
 		getCountriesList: builder.query({
 			query: () => 'https://restcountries.com/v3.1/all'

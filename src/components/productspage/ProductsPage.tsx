@@ -7,19 +7,30 @@ import MyLoader from '../../UI/myLoader/MyLoader'
 import MyModal from '../../UI/myModal/MyModal'
 import ProductFilters from '../productfilters/ProductFilters'
 import { IProduct } from '../../types/product.types'
+import ProductsList from '../productslist/ProductsList'
 
 const ProductsPage = () => {
 	const {inputValue} = useInputValue()
-	const [productsLimit, setProductsLimit] = useState<number>(10)
-	const currentProductsList = useGetProductsListQuery(productsLimit).data?.filter((product: IProduct) => product.title.toLowerCase().includes(inputValue.value.toLowerCase()))
-	const allProductsList = useGetProductsListQuery(20).data?.filter((product: IProduct) => product.title.toLowerCase().includes(inputValue.value.toLowerCase()))
+	const allProducts = useGetProductsListQuery(null).data
 	const [minPrice, setMinPrice] = useState<number | null>(null)
 	const [maxPrice, setMaxPrice] = useState<number | null>(null)
 	const [category, setCategory] = useState<string | null>(null)
 	const [isHighRating, setIsHighRating] = useState<boolean>(false)
-	const [offset, setOffset] = useState<number>(0)
 	const [selectedSort, setSelectedSort] = useState<string>('')
 	const [isOpen, setIsOpen] = useState<boolean>(false)
+	const filterProductsList = (productsList: IProduct[]) => {
+		const sortProductsList = (productsListFilter: IProduct[]) => {
+			if (selectedSort == '') {
+				return productsListFilter
+			} else {
+				return productsListFilter.sort((a, b) => selectedSort == 'price-to-high' ? a.price - b.price : -a.price - -b.price)
+			}
+		}
+		const filteredProductsList = productsList?.filter((product) => product.title.toLowerCase().includes(inputValue.value.toLowerCase()))?.filter(product => minPrice! | maxPrice! ? product.price > minPrice! && product.price < maxPrice! : product).filter(product => category ? product.category == category : product).filter(product => isHighRating ? product.rating.rate >= 4.5 : product)
+		return sortProductsList(filteredProductsList)
+	}
+	const allProductsList = filterProductsList(allProducts)
+	console.log(allProductsList)
 	return ( 
 		<div className="products">
 			<div className="products-top">
@@ -28,16 +39,18 @@ const ProductsPage = () => {
 		<p>We found {allProductsList ? allProductsList.length : 'many'} results</p>
 		</div>
 		<div className="products-top__sort">
-		<select onChange={(e:ChangeEvent<HTMLSelectElement>) => console.log(e.target.value)}>
+		<select onChange={(e:ChangeEvent<HTMLSelectElement>) => {
+			setSelectedSort(e.target.value)
+		}}>
 			<option value="">Sort by default</option>
 			<option value="price-to-high">Sort by price to high</option>
 			<option value="price-to-low">Sort by price to low</option>
 		</select>
 		</div>
 			</div>
-			<MyLoader/>
+			{allProductsList ? <ProductsList products={allProductsList}/> : <MyLoader/>}
 			<MyModal isOpen={isOpen} setIsOpen={setIsOpen}>
-				<ProductFilters minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} setCategory={setCategory}/>
+				<ProductFilters minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} setCategory={setCategory} isHighRating={isHighRating} setIsHighRating={setIsHighRating}/>
 			</MyModal>
 		</div>
 	 );

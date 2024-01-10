@@ -8,8 +8,10 @@ interface IProductFiltersProps {
 	setMinPrice: Dispatch<SetStateAction<number | null>>
 	setMaxPrice: Dispatch<SetStateAction<number | null>>
 	setCategory: Dispatch<SetStateAction<string | null>>
+	isHighRating: boolean
+	setIsHighRating: Dispatch<SetStateAction<boolean>>
 }
-const ProductFilters: FC<IProductFiltersProps> = ({minPrice, maxPrice, setMinPrice, setMaxPrice, setCategory}) => {
+const ProductFilters: FC<IProductFiltersProps> = ({minPrice, maxPrice, setMinPrice, setMaxPrice, setCategory, isHighRating, setIsHighRating}) => {
 	const categoriesList = useGetCategoriesListQuery(null)
 	return ( 
 		<div className="product-filters">
@@ -21,11 +23,17 @@ const ProductFilters: FC<IProductFiltersProps> = ({minPrice, maxPrice, setMinPri
 				if (parseFloat(e.target.value) <= (maxPrice || 1000)) {
 					setMinPrice(parseFloat(e.target.value))
 				}
+				if (!maxPrice) {
+					setMaxPrice(maxPrice || 1000)
+				}
 				} 
 		} max={1000} min={0}/>
 			<input type="number" value={maxPrice == null ? 1000 : maxPrice} onChange={(e: ChangeEvent<HTMLInputElement>) => {
 				if (parseFloat(e.target.value) >= (minPrice || 0)) {
 					setMaxPrice(parseFloat(e.target.value) > 1000 ? maxPrice : parseFloat(e.target.value))}
+					if (!minPrice) {
+						setMinPrice(minPrice || 0)
+					}
 				} 
 		} max={1000} min={0}/>
 		</div>
@@ -43,6 +51,10 @@ const ProductFilters: FC<IProductFiltersProps> = ({minPrice, maxPrice, setMinPri
 				})
 			}
 		</select>
+		</div>
+		<div className="set-rating">
+		<h2>Only high rating (more than 4.5)</h2>
+		<input type="checkbox" checked={isHighRating} onChange={() => setIsHighRating(!isHighRating)} />
 		</div>
 		</div>
 	 );
