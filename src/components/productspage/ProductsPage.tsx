@@ -8,6 +8,7 @@ import MyModal from '../../UI/myModal/MyModal'
 import ProductFilters from '../productfilters/ProductFilters'
 import { IProduct } from '../../types/product.types'
 import ProductsList from '../productslist/ProductsList'
+import SelectedProductCard from '../selectedproductcard/SelectedProductCard'
 
 const ProductsPage = () => {
 	const {inputValue} = useInputValue()
@@ -17,7 +18,9 @@ const ProductsPage = () => {
 	const [category, setCategory] = useState<string | null>(null)
 	const [isHighRating, setIsHighRating] = useState<boolean>(false)
 	const [selectedSort, setSelectedSort] = useState<string>('')
-	const [isOpen, setIsOpen] = useState<boolean>(false)
+	const [selectedProduct, setSelectedProduct] = useState<null | IProduct>(null)
+	const [isFiltersOpen, setIsFiltersOpen] = useState<boolean>(false)
+	const [isProductOpen, setIsProductOpen] = useState<boolean>(false)
 	const filterProductsList = (productsList: IProduct[]) => {
 		const sortProductsList = (productsListFilter: IProduct[]) => {
 			if (selectedSort == '') {
@@ -34,7 +37,7 @@ const ProductsPage = () => {
 	return ( 
 		<div className="products">
 			<div className="products-top">
-		<div className="products-top__filters"><img src={FiltersIcon} alt="" onClick={() => setIsOpen(true)} /></div>
+		<div className="products-top__filters"><img src={FiltersIcon} alt="" onClick={() => setIsFiltersOpen(true)} /></div>
 		<div className="products-top__results">
 		<p>We found {allProductsList ? allProductsList.length : 'many'} results</p>
 		</div>
@@ -48,9 +51,12 @@ const ProductsPage = () => {
 		</select>
 		</div>
 			</div>
-			{allProductsList ? <ProductsList products={allProductsList}/> : <MyLoader/>}
-			<MyModal isOpen={isOpen} setIsOpen={setIsOpen}>
+			{allProductsList ? <ProductsList products={allProductsList} setIsOpen={setIsProductOpen} setProduct={setSelectedProduct}/> : <MyLoader/>}
+			<MyModal isOpen={isFiltersOpen} setIsOpen={setIsFiltersOpen}>
 				<ProductFilters minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} setCategory={setCategory} isHighRating={isHighRating} setIsHighRating={setIsHighRating}/>
+			</MyModal>
+			<MyModal isOpen={isProductOpen} setIsOpen={setIsProductOpen}>
+		<SelectedProductCard product={selectedProduct}/>
 			</MyModal>
 		</div>
 	 );

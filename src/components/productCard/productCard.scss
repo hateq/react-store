@@ -8,10 +8,12 @@
 	img {
 		width: 100px;
 		height: 100px;
+		cursor: pointer;
 	}
 	h3 {
 		font-size: 16px;
 		margin-bottom: 0;
+		cursor: pointer;
 	}
 	p {
 		margin: 8px 0;
@@ -21,6 +23,10 @@
 			width: 18px;
 			height: 18px;
 			margin-bottom: -4px;
+			cursor: default;
+		}
+		span {
+			color: var(--second-color);
 		}
 	}
 	h2 {
