@@ -21,6 +21,7 @@ const ProductsPage = () => {
 	const [selectedProduct, setSelectedProduct] = useState<null | IProduct>(null)
 	const [isFiltersOpen, setIsFiltersOpen] = useState<boolean>(false)
 	const [isProductOpen, setIsProductOpen] = useState<boolean>(false)
+	const [filtersCounter, setFiltersCounter] = useState<string[]>([]);
 	const filterProductsList = (productsList: IProduct[]) => {
 		const sortProductsList = (productsListFilter: IProduct[]) => {
 			if (selectedSort == '') {
@@ -33,11 +34,11 @@ const ProductsPage = () => {
 		return sortProductsList(filteredProductsList)
 	}
 	const allProductsList = filterProductsList(allProducts)
-	console.log(allProductsList)
+	// console.log(allProductsList)
 	return ( 
 		<div className="products">
 			<div className="products-top">
-		<div className="products-top__filters"><img src={FiltersIcon} alt="" onClick={() => setIsFiltersOpen(true)} /></div>
+		<div className="products-top__filters"><img src={FiltersIcon} alt="" onClick={() => setIsFiltersOpen(true)} /><p>{filtersCounter.length}</p></div>
 		<div className="products-top__results">
 		<p>We found {allProductsList ? allProductsList.length : 'many'} results</p>
 		</div>
@@ -53,7 +54,7 @@ const ProductsPage = () => {
 			</div>
 			{allProductsList ? <ProductsList products={allProductsList} setIsOpen={setIsProductOpen} setProduct={setSelectedProduct}/> : <MyLoader/>}
 			<MyModal isOpen={isFiltersOpen} setIsOpen={setIsFiltersOpen}>
-				<ProductFilters minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} setCategory={setCategory} isHighRating={isHighRating} setIsHighRating={setIsHighRating}/>
+				<ProductFilters minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} category={category} setCategory={setCategory} isHighRating={isHighRating} setIsHighRating={setIsHighRating} filtersCounter={filtersCounter} setFiltersCounter={setFiltersCounter} />
 			</MyModal>
 			<MyModal isOpen={isProductOpen} setIsOpen={setIsProductOpen}>
 		<SelectedProductCard product={selectedProduct}/>

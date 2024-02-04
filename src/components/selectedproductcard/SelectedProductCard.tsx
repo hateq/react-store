@@ -2,14 +2,12 @@ import { IProduct } from '../../types/product.types'
 import './selectedProductCard.scss'
 import {FC} from 'react'
 import StarIcon from '../../../images/icons/star.svg';
-import { useActions } from '../../hooks/useActions';
-import { useCart } from '../../hooks/useCart';
+import MyProductButton from '../../UI/myProductButton/MyProductButton'
+
 interface ISelectedProductCardProps {
 	product: null | IProduct
 }
 const SelectedProductCard: FC<ISelectedProductCardProps> = ({product}) => {
-	const {toggleCart} = useActions();
-	const {cart} = useCart();
 	return ( 
 		<div className="selected-product-card">
 			<img src={product?.image} alt="" />
@@ -20,7 +18,7 @@ const SelectedProductCard: FC<ISelectedProductCardProps> = ({product}) => {
 				<p>{product?.rating.rate}<img src={StarIcon} alt="" />/<span>{product?.rating.count}</span></p>
 			</div>
 			<h3>{product?.price} $</h3>
-			<button onClick={() => toggleCart(product!)}>{cart.find((item) => item.title == product?.title) ? 'In cart' : 'To cart'}</button>
+			<MyProductButton product={product}/>
 		</div>
 	 );
 }

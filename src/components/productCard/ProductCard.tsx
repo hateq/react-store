@@ -1,10 +1,9 @@
 import { IProduct } from '../../types/product.types'
 import {FC, Dispatch, SetStateAction} from 'react'
-import MyButton from '../../UI/myButton/MyButton';
 import StarIcon from '../../../images/icons/star.svg';
-import { useActions } from '../../hooks/useActions';
-import { useCart } from '../../hooks/useCart';
 import './productCard.scss';
+import MyProductButton from '../../UI/myProductButton/MyProductButton'
+
 interface IProductCardProps {
 	product: IProduct
 	setIsOpen: Dispatch<SetStateAction<boolean>>
@@ -15,8 +14,6 @@ const ProductCard: FC<IProductCardProps> = ({product, setIsOpen, setProduct}) =>
 		setIsOpen(true)
 		setProduct(product)
 	}
-	const {toggleCart} = useActions();
-	const {cart} = useCart();
 	return ( 
 		<div className="product-card">
 			<img onClick={onProductClick} src={product.image} alt="" />
@@ -24,7 +21,7 @@ const ProductCard: FC<IProductCardProps> = ({product, setIsOpen, setProduct}) =>
 			<p>{product.category}</p>
 			<p>{product.rating.rate}<img src={StarIcon} alt="" />/<span>{product.rating.count}</span></p>
 			<h2>{product.price + ' $'}</h2>
-			<MyButton onClick={() => toggleCart(product!)}>{cart.find((item) => item.title == product?.title) ? 'In cart' : 'To cart'} </MyButton>
+			<MyProductButton product={product}/>
 		</div>
 	 );
 }

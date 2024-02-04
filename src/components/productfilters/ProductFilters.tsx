@@ -1,18 +1,36 @@
 import RangeSlider from '../../UI/rangeSlider/RangeSlider'
 import { useGetCategoriesListQuery } from '../../store/api/api'
 import './productFilters.scss'
-import {FC, Dispatch, SetStateAction, ChangeEvent} from 'react'
+import {FC, Dispatch, SetStateAction, ChangeEvent, useEffect} from 'react'
 interface IProductFiltersProps {
 	minPrice: number | null
 	maxPrice: number | null
 	setMinPrice: Dispatch<SetStateAction<number | null>>
 	setMaxPrice: Dispatch<SetStateAction<number | null>>
+	category: string | null
 	setCategory: Dispatch<SetStateAction<string | null>>
 	isHighRating: boolean
 	setIsHighRating: Dispatch<SetStateAction<boolean>>
+	filtersCounter: string[]
+	setFiltersCounter: Dispatch<SetStateAction<string[]>>
 }
-const ProductFilters: FC<IProductFiltersProps> = ({minPrice, maxPrice, setMinPrice, setMaxPrice, setCategory, isHighRating, setIsHighRating}) => {
+const ProductFilters: FC<IProductFiltersProps> = ({minPrice, maxPrice, setMinPrice, setMaxPrice, category, setCategory, isHighRating, setIsHighRating, filtersCounter, setFiltersCounter}) => {
 	const categoriesList = useGetCategoriesListQuery(null)
+	useEffect(() => {
+		if (minPrice == 0 && maxPrice == 1000) {
+			setFiltersCounter(filtersCounter.filter(item => item !== 'price'))
+		}
+	}, [minPrice])
+	useEffect(() => {
+		if (maxPrice == 1000 && minPrice == 0) {
+			setFiltersCounter(filtersCounter.filter(item => item !== 'price'))
+		}
+	}, [maxPrice])
+	useEffect(() => {
+		if (!filtersCounter.includes('price') && maxPrice) {
+			setFiltersCounter([...filtersCounter, 'price'])
+		}
+	}, [minPrice, maxPrice])
 	return ( 
 		<div className="product-filters">
 			<div className="set-price">
@@ -43,6 +61,12 @@ const ProductFilters: FC<IProductFiltersProps> = ({minPrice, maxPrice, setMinPri
 		<select onChange={(e: ChangeEvent<HTMLSelectElement>) => {
 			const selectedCategory = e.target.value || null
 				setCategory(selectedCategory)
+				if (!category) {
+					setFiltersCounter([...filtersCounter, 'category'])
+				}
+				if (category) {
+					setFiltersCounter(filtersCounter.filter(item => item !== 'category'))
+				}
 		}}>
 			<option value=''>No category</option>
 			{
@@ -54,7 +78,15 @@ const ProductFilters: FC<IProductFiltersProps> = ({minPrice, maxPrice, setMinPri
 		</div>
 		<div className="set-rating">
 		<h2>Only high rating (more than 4.5)</h2>
-		<input type="checkbox" checked={isHighRating} onChange={() => setIsHighRating(!isHighRating)} />
+		<input type="checkbox" checked={isHighRating} onChange={() => {
+			setIsHighRating(!isHighRating)
+			if (!isHighRating) {
+				setFiltersCounter([...filtersCounter, 'rating'])
+			}
+			if (isHighRating) {
+				setFiltersCounter(filtersCounter.filter(item => item !== 'rating'))
+			}
+		}} />
 		</div>
 		</div>
 	 );
