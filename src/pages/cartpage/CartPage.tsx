@@ -18,7 +18,7 @@ const CartPage = () => {
 	const [isProductOpen, setIsProductOpen] = useState<boolean>(false)
 	const [isOrderOpen, setIsOrderOpen] = useState<boolean>(false)
 	const [selectedProduct, setSelectedProduct] = useState<
-		null | IProduct | IProductCart
+		null | IProductCart
 	>(null)
 	let cartPrice = 0
 	for (let i = 0; i < cart.length; i++) {

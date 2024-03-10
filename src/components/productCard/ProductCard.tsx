@@ -1,4 +1,3 @@
-import { IProduct } from '../../types/product.types'
 import { IProductCart } from '../../types/product.types'
 import { FC, Dispatch, SetStateAction } from 'react'
 import StarIcon from '../../../images/icons/star.svg'
@@ -9,7 +8,7 @@ import { useActions } from '../../hooks/useActions'
 interface IProductCardProps {
 	product: IProductCart
 	setIsOpen: Dispatch<SetStateAction<boolean>>
-	setProduct: Dispatch<SetStateAction<null | IProduct>>
+	setProduct: Dispatch<SetStateAction<null | IProductCart>>
 	isCart?: true
 }
 const ProductCard: FC<IProductCardProps> = ({

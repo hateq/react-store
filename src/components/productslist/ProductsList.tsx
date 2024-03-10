@@ -1,11 +1,11 @@
 import './productsList.scss'
 import {FC, Dispatch, SetStateAction} from 'react'
 import ProductCard from '../productCard/ProductCard';
-import { IProduct, IProductCart } from '../../types/product.types'
+import { IProductCart } from '../../types/product.types'
 interface IProductsListProps {
 	products: IProductCart[]
 	setIsOpen: Dispatch<SetStateAction<boolean>>
-	setProduct: Dispatch<SetStateAction<null | IProduct | IProductCart>>
+	setProduct: Dispatch<SetStateAction<null | IProductCart>>
 	isCart?: true
 }
 const ProductsList: FC<IProductsListProps> = ({products, setIsOpen, setProduct, isCart}) => {

@@ -6,7 +6,7 @@ import { useGetProductsListQuery } from '../../store/api/api'
 import MyLoader from '../../UI/myLoader/MyLoader'
 import MyModal from '../../UI/myModal/MyModal'
 import ProductFilters from '../productfilters/ProductFilters'
-import { IProduct } from '../../types/product.types'
+import { IProduct, IProductCart } from '../../types/product.types'
 import ProductsList from '../productslist/ProductsList'
 import SelectedProductCard from '../selectedproductcard/SelectedProductCard'
 
@@ -18,7 +18,7 @@ const ProductsPage = () => {
 	const [category, setCategory] = useState<string | null>(null)
 	const [isHighRating, setIsHighRating] = useState<boolean>(false)
 	const [selectedSort, setSelectedSort] = useState<string>('')
-	const [selectedProduct, setSelectedProduct] = useState<null | IProduct>(null)
+	const [selectedProduct, setSelectedProduct] = useState<null | IProductCart>(null)
 	const [isFiltersOpen, setIsFiltersOpen] = useState<boolean>(false)
 	const [isProductOpen, setIsProductOpen] = useState<boolean>(false)
 	const [filtersCounter, setFiltersCounter] = useState<string[]>([]);

@@ -4,13 +4,13 @@ import MyModal from '../../UI/myModal/MyModal'
 import { useSelectedCategory } from '../../hooks/useSelectedCategory'
 import './singleCategoryPage.scss'
 import { useState } from 'react'
-import { IProduct } from '../../types/product.types'
+import { IProduct, IProductCart } from '../../types/product.types'
 import { useGetProductsListQuery } from '../../store/api/api'
 const SingleCategoryPage = () => {
 	const { selectedCategory } = useSelectedCategory()
 	const products = useGetProductsListQuery(null).data?.filter((p: IProduct) => p.category == selectedCategory.selectedCategory)
 	const [isProductOpen, setIsProductOpen] = useState<boolean>(false)
-	const [selectedProduct, setSelectedProduct] = useState<null | IProduct>(null)
+	const [selectedProduct, setSelectedProduct] = useState<null | IProductCart>(null)
 	return (
 		<>
 			<h2 className='category-title'>
