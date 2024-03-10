@@ -5,8 +5,6 @@ import StarIcon from '../../../images/icons/star.svg'
 import './productCard.scss'
 import MyProductButton from '../../UI/myProductButton/MyProductButton'
 import { useActions } from '../../hooks/useActions'
-import { useState } from 'react'
-import { useCart } from '../../hooks/useCart'
 
 interface IProductCardProps {
 	product: IProductCart
@@ -25,9 +23,6 @@ const ProductCard: FC<IProductCardProps> = ({
 		setProduct(product)
 	}
 	const { toggleCart, updateQuantity } = useActions()
-	const {cart} = useCart()
-	const [currentQuantity, setCurrentQuantity] = useState<number>(1)
-	// console.log(product, 'zxc')
 	return (
 		<div className='product-card'>
 			<img onClick={onProductClick} src={product.image} alt='' />
