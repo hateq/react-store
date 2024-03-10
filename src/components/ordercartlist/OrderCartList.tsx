@@ -20,14 +20,20 @@ const OrderCartList: FC<IOrderCartListProps> = ({ cart }) => {
 							<img src={product.image} alt='' />
 							<h2>{product.title}</h2>
 							<p>{product.quantity}</p>
-							<h3>{product.price * product.quantity} $</h3>
+							<h3>{(product.price * product.quantity).toFixed(1)} $</h3>
 						</div>
 					)
 				})}
 			</div>
 			<div className='order-cart-bottom'>
 				<h2 className='order-cart-title'>{cartPrice.toFixed(1)} $</h2>
-				<MyButton onClick={() => {return}}>Order</MyButton>
+				<MyButton
+					onClick={() => {
+						return
+					}}
+				>
+					Order
+				</MyButton>
 			</div>
 		</div>
 	)

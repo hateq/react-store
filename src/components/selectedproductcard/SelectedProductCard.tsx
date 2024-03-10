@@ -1,11 +1,11 @@
-import { IProduct } from '../../types/product.types'
+import { IProductCart } from '../../types/product.types'
 import './selectedProductCard.scss'
 import {FC} from 'react'
 import StarIcon from '../../../images/icons/star.svg';
 import MyProductButton from '../../UI/myProductButton/MyProductButton'
 
 interface ISelectedProductCardProps {
-	product: null | IProduct
+	product: null | IProductCart
 }
 const SelectedProductCard: FC<ISelectedProductCardProps> = ({product}) => {
 	return ( 
