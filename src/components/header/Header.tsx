@@ -32,9 +32,11 @@ const Header = () => {
 			</div>
 		</div>
 		<div className="header-top__search-container">
-		<MyInput value={inputValue.value} onChange={(e: ChangeEvent<HTMLInputElement>) => {
-			setInputValue(e.target.value)
-		}}/>
+		<Link to='/react-store/'>
+			<MyInput value={inputValue.value} onChange={(e: ChangeEvent<HTMLInputElement>) => {
+				setInputValue(e.target.value)
+			}}/>
+		</Link>
 		</div>
 		<div className="header-top__right">
 			<ThemeToggler/>

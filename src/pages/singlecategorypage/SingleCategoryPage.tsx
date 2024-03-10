@@ -6,7 +6,6 @@ import './singleCategoryPage.scss'
 import { useState } from 'react'
 import { IProduct } from '../../types/product.types'
 import { useGetProductsListQuery } from '../../store/api/api'
-
 const SingleCategoryPage = () => {
 	const { selectedCategory } = useSelectedCategory()
 	const products = useGetProductsListQuery(null).data?.filter((p: IProduct) => p.category == selectedCategory.selectedCategory)

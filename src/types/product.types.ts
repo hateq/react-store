@@ -11,6 +11,9 @@ export interface IProduct {
 	image: string
 	rating: IProductRating
 }
+export interface IProductCart extends IProduct {
+	quantity: number
+}
 export interface IProductsList {
 	title: string
 	minPrice: number | null

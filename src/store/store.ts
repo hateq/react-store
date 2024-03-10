@@ -4,12 +4,14 @@ import { cartSlice } from './cart/cart.slice'
 import { userCountrySlice } from './usercountry/userCountry.slice'
 import { selectedCategorySlice } from './selectedcategory/selectedCategory.slice';
 import { inputValueSlice } from './inputvalue/inputValue.slice'
+import { isLogedInSlice } from './islogedin/isLogedIn.slice';
 
 const reducers = combineReducers({
 	cart: cartSlice.reducer,
 	userCountry: userCountrySlice.reducer,
 	selectedCategory: selectedCategorySlice.reducer,
 	inputValue: inputValueSlice.reducer,
+	isLogedIn: isLogedInSlice.reducer,
 	[api.reducerPath]: api.reducer
 })
 

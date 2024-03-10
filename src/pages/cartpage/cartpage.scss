@@ -1,0 +1,33 @@
+.cart-title {
+	font-size: 28px;
+	margin: 20px auto;
+}
+.order-products {
+	display: flex;
+	justify-content: space-between;
+	width: 80%;
+	margin: 0 auto;
+	button {
+		font-size: 24px;
+		background-color: var(--second-color);
+		color: white;
+		border: none;
+		border-radius: 5px;
+		padding: 10px;
+		height: 60px;
+		cursor: pointer;
+	}
+	h2 {
+		font-size: 28px;
+		@media (max-width: 400px) {
+			font-size: 24px;
+		}
+	}
+}
+.not-logedin {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 250px;
+}

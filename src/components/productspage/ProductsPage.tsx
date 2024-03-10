@@ -34,7 +34,6 @@ const ProductsPage = () => {
 		return sortProductsList(filteredProductsList)
 	}
 	const allProductsList = filterProductsList(allProducts)
-	// console.log(allProductsList)
 	return ( 
 		<div className="products">
 			<div className="products-top">
@@ -52,7 +51,9 @@ const ProductsPage = () => {
 		</select>
 		</div>
 			</div>
-			{allProductsList ? <ProductsList products={allProductsList} setIsOpen={setIsProductOpen} setProduct={setSelectedProduct}/> : <MyLoader/>}
+			{allProductsList ? <ProductsList products={allProductsList.map((product) => {
+				return {...product, quantity: 1}
+			})} setIsOpen={setIsProductOpen} setProduct={setSelectedProduct}/> : <MyLoader/>}
 			<MyModal isOpen={isFiltersOpen} setIsOpen={setIsFiltersOpen}>
 				<ProductFilters minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} category={category} setCategory={setCategory} isHighRating={isHighRating} setIsHighRating={setIsHighRating} filtersCounter={filtersCounter} setFiltersCounter={setFiltersCounter} />
 			</MyModal>

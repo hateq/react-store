@@ -14,6 +14,7 @@
 		font-size: 16px;
 		margin-bottom: 0;
 		cursor: pointer;
+		height: 75px;
 	}
 	p {
 		margin: 8px 0;
@@ -31,5 +32,18 @@
 	}
 	h2 {
 		margin: 20px 0;
+	}
+}
+.quantity {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	p {
+		font-size: 28px;
+		cursor: pointer;
+		user-select: none;
+	}
+	h2 {
+		user-select: none;
 	}
 }
