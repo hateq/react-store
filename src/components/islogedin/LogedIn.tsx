@@ -16,6 +16,11 @@ const LogedIn = () => {
 	const {data} = useGetCountriesListQuery(null)
 	const {setIsLogedIn, setUserAccount} = useActions()
 	const userCountryFlag = data?.find((country: any) => country.name.common == userCountry.country)?.flags.svg
+	const onSaveButtonClick = () => {
+		setIsOpen(false);
+		setUserAccount({userName : userName, userSurname: userSurname, userLogin: userAccount.userLogin || '', userPassword: userAccount.userPassword || ''})
+		document.querySelector('body')?.classList.remove('disable-scroll')
+	}
 	return <div className='logedin'>
 		<h2>{userAccount.userName} {userAccount.userSurname} <img src={userCountryFlag} alt="" /></h2>
 		<div className="logedin-buttons">
@@ -29,10 +34,7 @@ const LogedIn = () => {
 			<div className="modal-inputs">
 				<input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} />
 				<input type="text" value={userSurname} onChange={(e) => setUserSurname(e.target.value)} />
-				<button className='save-button' onClick={() => {
-					setIsOpen(false);
-					setUserAccount({userName : userName, userSurname: userSurname, userLogin: userAccount.userLogin || '', userPassword: userAccount.userPassword || ''})
-					}}>Save</button>
+				<button className='save-button' onClick={onSaveButtonClick}>Save</button>
 			</div>
 		</MyModal>
 	</div>
