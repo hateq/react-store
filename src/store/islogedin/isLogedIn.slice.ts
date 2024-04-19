@@ -4,7 +4,9 @@ type TypeIsLogedIn = {
 	isLogedIn: boolean
 }
 const localStorageIsLogedIn = JSON.parse(localStorage.getItem('is-logedin')!)
-const initialState: TypeIsLogedIn = { isLogedIn: localStorageIsLogedIn || true }
+const initialState: TypeIsLogedIn = {
+	isLogedIn: localStorageIsLogedIn || false,
+}
 export const isLogedInSlice = createSlice({
 	name: 'is-logedin',
 	initialState,
@@ -12,7 +14,7 @@ export const isLogedInSlice = createSlice({
 		setIsLogedIn: state => {
 			const newValue = state.isLogedIn == true ? false : true
 			state.isLogedIn = newValue
-			localStorage.setItem('selected-category', JSON.stringify(newValue))
+			localStorage.setItem('is-logedin', JSON.stringify(newValue))
 		},
 	},
 })

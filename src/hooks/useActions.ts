@@ -6,13 +6,15 @@ import { userCountrySlice } from '../store/usercountry/userCountry.slice'
 import { selectedCategorySlice } from '../store/selectedcategory/selectedCategory.slice'
 import { inputValueSlice } from '../store/inputvalue/inputValue.slice'
 import { isLogedInSlice } from '../store/islogedin/isLogedIn.slice'
+import { userAccountSlice } from '../store/useraccount/userAccount.slice'
 
 const rootActions = {
 	...cartSlice.actions,
 	...userCountrySlice.actions,
 	...selectedCategorySlice.actions,
 	...inputValueSlice.actions,
-	...isLogedInSlice.actions
+	...isLogedInSlice.actions,
+	...userAccountSlice.actions
 }
 export const useActions = () => {
 	const dispatch = useDispatch()
